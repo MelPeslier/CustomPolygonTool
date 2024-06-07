@@ -3,5 +3,6 @@
 - It have the goal to be customizable by the user.
 - It adopt a new approach to mapping your material to your polygons.
 ### ![icon_terrain](addons/custom_polygon_tool/icons/cpt_terrain_icon.png) CPT_Terrain
+Create how many you want per scenes, create your shape, customize it by adding your own shader or modifying the existing one, and there you have a static ground !
 ### ![icon_craft](addons/custom_polygon_tool/icons/cpt_craft_icon.png) CPT_Craft
 ## Material
