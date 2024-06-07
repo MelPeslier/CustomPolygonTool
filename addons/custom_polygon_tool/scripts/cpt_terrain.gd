@@ -18,6 +18,9 @@ var static_body : StaticBody2D
 
 @export_group("LightOccluder2D")
 @export_flags_2d_render var occluder_light_mask : int = 1 : set = _set_occluder_light_mask
+@export_flags_2d_render var canvas_item_light_mask : int = 1 : set = _set_canvas_item_light_mask
+@export_flags_2d_render var canvas_item_visibility_layer : int = 1 : set = _set_canvas_item_visibility_layer
+
 
 func create_polygons() -> void:
 	line = Line2D.new()
@@ -45,6 +48,9 @@ func create_polygons() -> void:
 	collision_layer = collision_layer
 	collision_mask = collision_mask
 	polygon_texture = polygon_texture
+	occluder_light_mask = occluder_light_mask
+	canvas_item_light_mask = canvas_item_light_mask
+	canvas_item_visibility_layer = canvas_item_visibility_layer
 
 func _update_circle_polygon() -> void:
 	super()
@@ -57,37 +63,54 @@ func _refresh_curve() -> void:
 
 #region Polygon
 func _set_polygon_texture(_polygon_texture: Texture) -> void:
+	if not is_inside_tree(): return
 	polygon_texture = _polygon_texture
 	polygon.texture = polygon_texture
 	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	polygon.uv = polygon.polygon
-	
 #endregion
+
 
 #region StaticBody
 func _set_physics_material_override(_physics_material_override: PhysicsMaterial) -> void:
 	physics_material_override = _physics_material_override
+	if not is_inside_tree(): return
 	static_body.physics_material_override = physics_material_override
 
 func _set_constant_linear_velocity(_constant_linear_velocity : Vector2) -> void:
 	constant_linear_velocity = _constant_linear_velocity
+	if not is_inside_tree(): return
 	static_body.constant_linear_velocity = constant_linear_velocity
 
 func _set_constant_angular_velocity(_constant_angular_velocity : float) -> void:
 	constant_angular_velocity = _constant_angular_velocity
+	if not is_inside_tree(): return
 	static_body.constant_angular_velocity = constant_angular_velocity
 
 func _set_collision_layer(_collision_layer : int) -> void:
 	collision_layer = _collision_layer
+	if not is_inside_tree(): return
 	static_body.collision_layer = _collision_layer
 
 func _set_collision_mask(_collision_mask : int) -> void:
 	collision_mask = _collision_mask
+	if not is_inside_tree(): return
 	static_body.collision_mask = collision_mask
 #endregion
 
 #region LightOccluder
-func _set_occluder_light_mask(_occluder_light_mask) -> void:
+func _set_occluder_light_mask(_occluder_light_mask: int) -> void:
 	occluder_light_mask = _occluder_light_mask
+	if not is_inside_tree(): return
 	light_occluder.occluder_light_mask = occluder_light_mask
+
+func _set_canvas_item_light_mask(_canvas_item_light_mask: int) -> void:
+	canvas_item_light_mask = _canvas_item_light_mask
+	if not is_inside_tree(): return
+	light_occluder.light_mask = canvas_item_light_mask
+
+func _set_canvas_item_visibility_layer(_canvas_item_visibility_layer: int) -> void:
+	canvas_item_visibility_layer = _canvas_item_visibility_layer
+	if not is_inside_tree(): return
+	light_occluder.visibility_layer = canvas_item_visibility_layer
 #endregion

@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsdh6a56pmist"]
+
+[ext_resource type="Script" path="res://addons/custom_polygon_tool/scripts/cpt_curve2d.gd" id="1_8y3tc"]
+[ext_resource type="Script" path="res://addons/custom_polygon_tool/scripts/cpt_terrain.gd" id="2_8e3h4"]
+[ext_resource type="Shader" path="res://addons/custom_polygon_tool/materials/cpt_inner.gdshader" id="3_anc61"]
+[ext_resource type="Texture2D" uid="uid://fskijh8nsb3a" path="res://addons/custom_polygon_tool/samplers/cpt_inner_custom.bmp" id="4_xioqy"]
+[ext_resource type="Shader" path="res://addons/custom_polygon_tool/materials/cpt_line.gdshader" id="5_unmsj"]
+
+[sub_resource type="Curve2D" id="Curve2D_k3kvn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1.53076e-14, -250, 0, 0, 0, 0, 216.506, 125, 161.732, 271.139, -161.732, -271.139, -216.506, 125, 0, 0, 0, 0, -4.59227e-14, -250)
+}
+point_count = 4
+script = ExtResource("1_8y3tc")
+
+[sub_resource type="Gradient" id="Gradient_wi5s0"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qry82"]
+gradient = SubResource("Gradient_wi5s0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x82wy"]
+shader = ExtResource("3_anc61")
+shader_parameter/p_c_f_d = 0.5
+shader_parameter/uv_local_global = 1.0
+shader_parameter/p_use_sdf = 1.0
+shader_parameter/p_sdf_aim = 500.0
+shader_parameter/p_tex_tiling = 1.0
+shader_parameter/p_tex_size = Vector2(1024, 1024)
+shader_parameter/p_sdf_color = null
+shader_parameter/p_main_sampler = ExtResource("4_xioqy")
+shader_parameter/c_use_back_buffer = 1.0
+shader_parameter/c_use_sdf = 1.0
+shader_parameter/c_sdf_aim = 500.0
+shader_parameter/c_sdf_color = null
+shader_parameter/c_tex_tiling = 1.0
+shader_parameter/c_tex_size = Vector2(1024, 1024)
+shader_parameter/c_main_splats_color = Color(0, 0, 0, 1)
+shader_parameter/c_main_sampler = ExtResource("4_xioqy")
+shader_parameter/f_sdf_aim = 150.0
+shader_parameter/f_color_sampler = SubResource("GradientTexture2D_qry82")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_errhu"]
+shader = ExtResource("5_unmsj")
+
+[node name="DemoScene" type="Node2D"]
+
+[node name="CPT_Terrain2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_k3kvn")
+script = ExtResource("2_8e3h4")
+occluder_light_mask = 0
+canvas_item_light_mask = 0
+inner_material = SubResource("ShaderMaterial_x82wy")
+poly_radius = 250.0
+poly_number_of_points = 3
+free_custom_bake_interval = 75.0
+free_angle_threshold = 0.05
+debug_show_collision_polygone = false
+debug_points_radius = 7.0
+debug_points_color = Array[Color]([Color(1, 0.388235, 0.278431, 1), Color(1, 0.647059, 0, 1)])
+line_material = SubResource("ShaderMaterial_errhu")

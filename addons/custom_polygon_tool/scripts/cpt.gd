@@ -237,6 +237,7 @@ func draw_circle_polygon(_radius: float, _nb_points: int) -> void:
 		polygon.polygon = points
 	if light_occluder:
 		light_occluder.occluder.polygon = points
+		print(light_occluder)
 
 
 func _refresh_curve() -> void:

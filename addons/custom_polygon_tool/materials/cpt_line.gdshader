@@ -5,11 +5,10 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = UV;
-	uv.y = 1.0 - uv.y;
-	float pct = 1.0 - pow(uv.y, 2.0);
+	vec2 uv = vec2(UV.x, 1.0 - UV.y) * 2.0 - 1.0;
+	float pct = pow(uv.y, 2.0);
 	COLOR.rgb = vec3(pct);
-	COLOR.a = 1.0;
+	COLOR.a = step(uv.y, 0.0) * (1.0-uv.y);
 }
 
 //void light() {
