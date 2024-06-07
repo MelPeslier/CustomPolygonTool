@@ -19,7 +19,7 @@ var static_body : StaticBody2D
 @export_group("LightOccluder2D")
 @export_flags_2d_render var occluder_light_mask : int = 1 : set = _set_occluder_light_mask
 @export_flags_2d_render var canvas_item_light_mask : int = 1 : set = _set_canvas_item_light_mask
-@export_flags_2d_render var canvas_item_visibility_layer : int = 1 : set = _set_canvas_item_visibility_layer
+@export_flags_2d_render var canvas_item_visibility_layer : int = 0 : set = _set_canvas_item_visibility_layer
 
 
 func create_polygons() -> void:
@@ -40,7 +40,6 @@ func create_polygons() -> void:
 	light_occluder = LightOccluder2D.new()
 	add_child(light_occluder)
 	light_occluder.occluder = OccluderPolygon2D.new()
-	_update_occluder()
 	
 	physics_material_override = physics_material_override
 	constant_linear_velocity = constant_linear_velocity

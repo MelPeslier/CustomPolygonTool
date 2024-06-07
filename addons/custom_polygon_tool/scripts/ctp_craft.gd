@@ -50,9 +50,7 @@ func load_or_create_polygon():
 		_update_polygon()
 		EditorInterface.get_selection().clear()
 		EditorInterface.get_selection().add_node(polygon)
-		print(polygon.get_meta_list())
 		polygon.set_meta("_edit_lock_", true)
-		print(polygon.get_meta_list())
 
 
 func load_or_create_line():
@@ -73,7 +71,7 @@ func load_or_create_occluder():
 		light_occluder.name = LIGHT_OCCLUDER_NAME
 		get_parent().add_child.call_deferred(light_occluder)
 		set_custom_owner.call_deferred(light_occluder)
-		_update_occluder()
+		light_occluder.visibility_layer = 0
 		light_occluder.set_meta("_edit_lock_", true)
 
 func load_or_create_collision():

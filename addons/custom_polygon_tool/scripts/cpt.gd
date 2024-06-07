@@ -57,6 +57,7 @@ var debug_points_radius : float = 7.0 : set = _set_debug_points_radius
 @export_group("Line", "line_")
 @export var line_draw_on_borders := false : set = _set_line_draw_on_borders
 var line_material : ShaderMaterial : set = _set_line_material
+var line_half_width : float = 5.0 : set = _set_line_half_width
 #endregion
 
 var is_curve_connected := false : set = _set_is_curve_connected
@@ -190,6 +191,14 @@ func _get_property_list() -> Array[Dictionary]:
 			"hint_string" : "ShaderMaterial",
 			"usage" : line_property_usage,
 		},
+		{
+			"name" : "line_half_width",
+			"class_name" : "",
+			"type" : TYPE_FLOAT,
+			"hint" : PROPERTY_HINT_RANGE,
+			"hint_string" : "2.5, 150, 0.001, or_greater, suffix:px",
+			"usage" : line_property_usage,
+		},
 	]
 	
 	var properties : Array[Dictionary] = poly_properties + free_properties + debug_properties + line_properties
@@ -208,6 +217,7 @@ func _ready() -> void:
 	# Update exported variables
 	debug_show = debug_show
 	debug_show_collision_polygone = debug_show_collision_polygone
+	line_half_width = line_half_width
 	_init_default_shape()
 	shape = shape
 
@@ -237,7 +247,6 @@ func draw_circle_polygon(_radius: float, _nb_points: int) -> void:
 		polygon.polygon = points
 	if light_occluder:
 		light_occluder.occluder.polygon = points
-		print(light_occluder)
 
 
 func _refresh_curve() -> void:
@@ -294,6 +303,8 @@ func _refresh_curve() -> void:
 
 ## Once a line is created, it will be called to update related properties
 func _update_line() -> void:
+	if not is_inside_tree(): return
+	if not line: return
 	line.z_index = LINE_Z_INDEX
 	line.texture_mode = Line2D.LINE_TEXTURE_TILE
 	line_material = line_material
@@ -301,13 +312,11 @@ func _update_line() -> void:
 
 ## Once a polygon is created, it will be called to update related properties
 func _update_polygon() -> void:
+	if not is_inside_tree(): return
+	if not polygon: return
 	polygon.z_index = POLYGON_Z_INDEX
 	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	inner_material = inner_material
-
-## Once a polygon is created, it will be called to update related properties
-func _update_occluder() -> void:
-	light_occluder.visibility_layer = 0
 #endregion
 
 
@@ -454,5 +463,10 @@ func _set_line_material(_line_material: ShaderMaterial) -> void:
 	if line:
 		line.material = line_material
 #endregion
+
+func _set_line_half_width(_line_half_width : float) -> void:
+	line_half_width = _line_half_width
+	if not is_inside_tree(): return
+	line.width = line_half_width * 2.0
 
 #endregion
