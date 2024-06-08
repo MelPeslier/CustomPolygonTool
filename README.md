@@ -8,3 +8,12 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 - **Only one** per scene, it's used to be added as a child of an ObjectCollision2D (CharacterBody, StaticBody, AnimatableBody)
 - Add your own scripts to the parent, and customize his behavior !
 ## Material
+
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
