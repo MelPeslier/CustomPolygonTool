@@ -10,7 +10,7 @@
 ### Features
 - ![](git_images/cpt_examples/modify.png) Use the regular polygon tools provided by Godot to edit the shape
 
-- | Main Options | Description |
+| Main Options | Description |
 |-|-|
 | ![](git_images/cpt_examples/cpt_options_00.png) |   |
 
