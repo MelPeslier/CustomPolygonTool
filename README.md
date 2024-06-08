@@ -58,7 +58,7 @@ Here, there is 4 different polygons, but yes, thanks to distance fields, they fi
 - **ElementsToMix** : put in it the elements you want to mix with your terrain
 - **DarkMasks** : put in it your dark masks to differentiate between elements and background
 >[!TIP]
-> Usually using [color rects](https://docs.godotengine.org/fr/4.x/classes/class_colorrect.html#colorrect), but any will do !
+> Usually using multiple [ColorRect](https://docs.godotengine.org/fr/4.x/classes/class_colorrect.html#colorrect), but any will do !
 - **ElementsBuffer** : will take care of saving the screen at this point in time and use that saved image latter in the [cpt_inner.gdscript](addons/custom_polygon_tool/materials/cpt_inner.gdshader)
 >[!TIP]
 > The order in wich Godot draw the objects is from top to bottom in the scene tree when objects have the same z_index
