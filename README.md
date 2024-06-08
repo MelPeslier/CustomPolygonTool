@@ -6,6 +6,7 @@
 ![](git_images/scene_examples/demo_01.png)
 
 ## ![](addons/custom_polygon_tool/icons/cpt_icon.png) CPT
+> [!TIP]
 > **Don't** instantiate it, it's only the base class, nothing will happen.
 ### Features
 
@@ -15,18 +16,16 @@
 
 | Main Options | |
 |-|-|
-| ![](git_images/cpt_examples/cpt_options_00.png) | 
-- m
-- d
-|
+| ![](git_images/cpt_examples/cpt_options_00.png) | The main categories available for you to edit and customize the shape and how it look. We'll dive int the Materials later |
 
 ### ![](addons/custom_polygon_tool/icons/cpt_terrain_icon.png) CPT_Terrain
 Create **how many** you want per scenes, create your shape, customize it by adding your own shader or modifying the existing one, and there you have a static ground !
 
 ### ![](addons/custom_polygon_tool/icons/cpt_craft_icon.png) CPT_Craft
 ![](git_images/cpt_examples/cpt_craft_setup.png)
-- **Only one** per scene, it's used to be added as a child of an ObjectCollision2D (CharacterBody, StaticBody, AnimatableBody)
-- Add your own scripts to the parent, and customize his behavior !
+> [!TIP]
+> **Only one** per scene, it's used to be added as a child of an ObjectCollision2D (CharacterBody, StaticBody, AnimatableBody)
+Add your own scripts to the parent, and customize his behavior !
 
 ## Material
 
