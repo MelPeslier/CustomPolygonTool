@@ -12,7 +12,6 @@ uniform vec3 p_sdf_color : source_color;
 uniform sampler2D p_main_sampler : hint_default_black, repeat_enable;
 
 
-
 group_uniforms custom_main;
 uniform float c_use_back_buffer : hint_range(0.0, 1.0, 1.0) = 1.0;
 uniform float c_use_sdf : hint_range(0.0, 1.0, 1.0) = 1.0;
@@ -68,6 +67,7 @@ void fragment() {
 	
 	float p_inner_sdf = -sdf_value * p_sdf_aim / 10000.0 ;
 	float p_sdf_pct = mix(1.0, min(p_inner_sdf, 1.0), p_use_sdf);
+	
 	p_final_tex.rgb = mix(p_sdf_color, p_main_tex.rgb, p_sdf_pct ); 
 	
 // *** _____ ***

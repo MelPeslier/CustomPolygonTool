@@ -3,8 +3,6 @@
 ## This class is not meant to be instantiated
 class_name CPT
 extends Path2D
-const LINE_Z_INDEX : int = -1
-const POLYGON_Z_INDEX : int = -2
 
 ## Base material for the inner polygon[br]
 const INNER_BASE_MATERIAL = preload("res://addons/custom_polygon_tool/materials/cpt_inner.gdshader")
@@ -16,6 +14,8 @@ const MATERIAL_BASE_TEXTURE = preload("res://addons/custom_polygon_tool/samplers
 const MATERIAL_PROTOTYPE_TEXTURE = preload("res://addons/custom_polygon_tool/samplers/cpt_inner_custom.bmp")
 ##Base gradient for the 'fractal' mode of the cpt_inner.gd[br]
 const GRADIENT_FRACTAL = preload("res://addons/custom_polygon_tool/samplers/fractal_gradient_2d.tres")
+##Base inner texture into the polygons
+const BASE_POLYGON_TEXTURE = preload("res://addons/custom_polygon_tool/samplers/cpt_inner_custom.bmp")
 
 
 enum Shape {## Edit modes
@@ -23,6 +23,8 @@ enum Shape {## Edit modes
 	POLY,## Create polygons based on radius and a number of points[br](They will be added at regular angles)
 }
 
+
+@export var polygon_texture: Texture : set = _set_polygon_texture
 ## Material for the inner polygon
 @export var inner_material : ShaderMaterial : set = _set_inner_material
 
@@ -245,6 +247,7 @@ func draw_circle_polygon(_radius: float, _nb_points: int) -> void:
 		collision_polygon.polygon = points
 	if polygon:
 		polygon.polygon = points
+		polygon_texture = polygon_texture
 	if light_occluder:
 		light_occluder.occluder.polygon = points
 
@@ -296,6 +299,7 @@ func _refresh_curve() -> void:
 		collision_polygon.polygon = points
 	if polygon:
 		polygon.polygon = points
+		polygon_texture = polygon_texture
 	if light_occluder:
 		light_occluder.occluder.polygon = points
 
@@ -305,7 +309,6 @@ func _refresh_curve() -> void:
 func _update_line() -> void:
 	if not is_inside_tree(): return
 	if not line: return
-	line.z_index = LINE_Z_INDEX
 	line.texture_mode = Line2D.LINE_TEXTURE_TILE
 	line_material = line_material
 	line_draw_on_borders = line_draw_on_borders
@@ -314,7 +317,6 @@ func _update_line() -> void:
 func _update_polygon() -> void:
 	if not is_inside_tree(): return
 	if not polygon: return
-	polygon.z_index = POLYGON_Z_INDEX
 	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	inner_material = inner_material
 #endregion
@@ -373,12 +375,6 @@ func _set_debug_show(_debug_show: bool) -> void:
 	debug_show_collision_polygone = false
 	if not is_inside_tree():
 		return
-	if debug_show:
-		line.z_index = LINE_Z_INDEX
-		polygon.z_index = POLYGON_Z_INDEX
-	else:
-		line.z_index = -POLYGON_Z_INDEX
-		polygon.z_index = -LINE_Z_INDEX
 	notify_property_list_changed()
 	queue_redraw()
 
@@ -404,6 +400,14 @@ func _set_debug_points_radius(_debug_points_radius: float) -> void:
 
 #endregion
 
+#region Polygon
+func _set_polygon_texture(_polygon_texture: Texture) -> void:
+	if not is_inside_tree(): return
+	polygon_texture = _polygon_texture
+	polygon.texture = polygon_texture
+	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	polygon.uv = polygon.polygon
+#endregion
 #region FREE
 func _set_free_custom_bake_interval(_free_custom_bake_interval : float) -> void:
 	free_custom_bake_interval = _free_custom_bake_interval

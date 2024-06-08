@@ -6,7 +6,7 @@ class_name CPT_Terrain
 extends CPT
 
 var static_body : StaticBody2D
-@export var polygon_texture: Texture : set = _set_polygon_texture
+
 
 @export_group("StaticBody2D")
 @export var physics_material_override : PhysicsMaterial : set = _set_physics_material_override
@@ -51,23 +51,7 @@ func create_polygons() -> void:
 	canvas_item_light_mask = canvas_item_light_mask
 	canvas_item_visibility_layer = canvas_item_visibility_layer
 
-func _update_circle_polygon() -> void:
-	super()
-	polygon_texture = polygon_texture
 
-func _refresh_curve() -> void:
-	super()
-	polygon_texture = polygon_texture
-
-
-#region Polygon
-func _set_polygon_texture(_polygon_texture: Texture) -> void:
-	if not is_inside_tree(): return
-	polygon_texture = _polygon_texture
-	polygon.texture = polygon_texture
-	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
-	polygon.uv = polygon.polygon
-#endregion
 
 
 #region StaticBody

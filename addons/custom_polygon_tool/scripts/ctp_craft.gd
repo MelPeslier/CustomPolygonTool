@@ -37,15 +37,17 @@ func create_polygons() -> void:
 	load_or_create_line()
 	load_or_create_occluder()
 	load_or_create_collision()
+	
+	polygon_texture = polygon_texture
 
 
 #region Load or create
 func load_or_create_polygon():
-	polygon = get_parent().get_node_or_null(POLYGON_NAME)
+	polygon = get_node_or_null(POLYGON_NAME)
 	if not polygon:
 		polygon = Polygon2D.new()
 		polygon.name = POLYGON_NAME
-		get_parent().add_child.call_deferred(polygon)
+		add_child.call_deferred(polygon)
 		set_custom_owner.call_deferred(polygon)
 		_update_polygon()
 		EditorInterface.get_selection().clear()
@@ -54,22 +56,22 @@ func load_or_create_polygon():
 
 
 func load_or_create_line():
-	line = get_parent().get_node_or_null(LINE_NAME)
+	line = get_node_or_null(LINE_NAME)
 	if not line:
 		line = Line2D.new()
 		line.name = LINE_NAME
-		get_parent().add_child.call_deferred(line)
+		add_child.call_deferred(line)
 		set_custom_owner.call_deferred(line)
 		_update_line()
 		line.set_meta("_edit_lock_", true)
 
 func load_or_create_occluder():
-	light_occluder = get_parent().get_node_or_null(LIGHT_OCCLUDER_NAME)
+	light_occluder = get_node_or_null(LIGHT_OCCLUDER_NAME)
 	if not light_occluder:
 		light_occluder = LightOccluder2D.new()
 		light_occluder.occluder = OccluderPolygon2D.new()
 		light_occluder.name = LIGHT_OCCLUDER_NAME
-		get_parent().add_child.call_deferred(light_occluder)
+		add_child.call_deferred(light_occluder)
 		set_custom_owner.call_deferred(light_occluder)
 		light_occluder.visibility_layer = 0
 		light_occluder.set_meta("_edit_lock_", true)
