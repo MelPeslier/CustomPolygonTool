@@ -10,7 +10,7 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 - Add your own scripts to the parent, and customize his behavior !
 ## Material
 
-|||
+| Map any images to your terrain | Not like this |
 |-|-|
 | ![demo_02](git_images/scene_examples/demo_02.png) | ![demo_03](git_images/scene_examples/demo_03.png) 
 
