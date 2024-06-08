@@ -26,7 +26,7 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 > [!TIP]
 > **Only one** per scene, it's used to be added as a child of an ObjectCollision2D (CharacterBody, StaticBody, AnimatableBody)
 
-  Add your own scripts to the parent, and customize his behavior !
+Add your own scripts to the parent, and customize his behavior !
 
 ## Material
 
