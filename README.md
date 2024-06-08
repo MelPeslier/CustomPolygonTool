@@ -3,6 +3,14 @@
 - It have the goal to be customizable by the user.
 - It adopt a new approach to mapping your material to your polygons.
 ![](git_images/scene_examples/demo_01.png)
+
+## ![](addons/custom_polygon_tool/icons/cpt_icon.png) CPT
+**Don't** instantiate it, it's only the base class, nothing will happen.
+Use the regular polygon tools provided by Godot to edit the shape
+![](git_images/cpt_examples/modify.png)
+### Features
+![](git_images/cpt_examples/cpt_options_00.png)
+
 ### ![](addons/custom_polygon_tool/icons/cpt_terrain_icon.png) CPT_Terrain
 Create **how many** you want per scenes, create your shape, customize it by adding your own shader or modifying the existing one, and there you have a static ground !
 
@@ -12,7 +20,13 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 - Add your own scripts to the parent, and customize his behavior !
 
 ## Material
-### Map any images to your terrain
+
+- There is a lot of usefull options in the shader.
+- I encourage you to test them out to see what they do !
+
+### Features
+
+#### Map any images to your terrain
 | Like this | Not like this |
 |-|-|
 | ![](git_images/scene_examples/demo_02.png) | ![](git_images/scene_examples/demo_03.png)
