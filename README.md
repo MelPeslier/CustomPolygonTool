@@ -15,7 +15,10 @@
 
 | Main Options | |
 |-|-|
-| ![](git_images/cpt_examples/cpt_options_00.png) |   |
+| ![](git_images/cpt_examples/cpt_options_00.png) | 
+- m
+- d
+|
 
 ### ![](addons/custom_polygon_tool/icons/cpt_terrain_icon.png) CPT_Terrain
 Create **how many** you want per scenes, create your shape, customize it by adding your own shader or modifying the existing one, and there you have a static ground !
