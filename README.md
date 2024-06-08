@@ -13,7 +13,5 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 |||
 |-|-|
 | ![demo_02](git_images/scene_examples/demo_02.png) | ![demo_03](git_images/scene_examples/demo_03.png) 
-|aa|bb|
-
 
 
