@@ -8,7 +8,10 @@
 ## ![](addons/custom_polygon_tool/icons/cpt_icon.png) CPT
 > **Don't** instantiate it, it's only the base class, nothing will happen.
 ### Features
-- ![](git_images/cpt_examples/modify.png) Use the regular polygon tools provided by Godot to edit the shape
+
+| Edit like always | |
+|-|-|
+| ![](git_images/cpt_examples/modify.png) | Use the regular polygon tools provided by Godot to edit the shape |
 
 | Main Options | Description |
 |-|-|
