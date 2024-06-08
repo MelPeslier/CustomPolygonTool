@@ -45,7 +45,7 @@ Here, there is 4 different polygons, but yes, thanks to distance fields, they fi
 |![](git_images/mat_examples/use_sdf.png)|![](git_images/scene_examples/demo_01.png)|
 
 #### Map any images to your terrain
-
+> Using the [BackBufferCopy](https://docs.godotengine.org/fr/4.x/classes/class_backbuffercopy.html#backbuffercopy)
 | Like this | Not like this |
 |-|-|
 | ![](git_images/scene_examples/demo_02.png) | ![](git_images/scene_examples/demo_03.png)
