@@ -23,19 +23,19 @@ var static_body : StaticBody2D
 
 
 func create_polygons() -> void:
-	line = Line2D.new()
-	add_child(line)
-	_update_line()
-
 	static_body = StaticBody2D.new()
 	add_child(static_body)
 
 	collision_polygon = CollisionPolygon2D.new()
 	static_body.add_child(collision_polygon)
-
+	
 	polygon = Polygon2D.new()
 	static_body.add_child(polygon)
 	_update_polygon()
+	
+	line = Line2D.new()
+	add_child(line)
+	_update_line()
 
 	light_occluder = LightOccluder2D.new()
 	add_child(light_occluder)
