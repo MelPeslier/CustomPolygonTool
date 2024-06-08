@@ -54,3 +54,11 @@ Here, there is 4 different polygons, but yes, thanks to distance fields, they fi
 | Scene setup| CPT_SetupHelper |
 |-|-|
 | ![](git_images/mat_examples/SceneSetup.png) |You can quickly bring this setup in your scene by adding a CPT_SetupHelper **right under the root of the actual scene**|
+
+- **ElementsToMix** : put in it the elements you want to mix with your terrain
+- **DarkMasks** : put in it your dark masks to differentiate between elements and background
+>[!TIP]
+> Usually using color rects, but any will do !
+- **ElementsBuffer** : will take care of saving the screen at this point in time and use that saved image latter in the [cpt_inner.gdscript](addons/custom_polygon_tool/materials/cpt_inner.gdshader)
+>[!TIP]
+> The order in wich Godot draw the objects is from top to bottom in the scene tree when objects have the same z_index
