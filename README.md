@@ -9,9 +9,10 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 - **Only one** per scene, it's used to be added as a child of an ObjectCollision2D (CharacterBody, StaticBody, AnimatableBody)
 - Add your own scripts to the parent, and customize his behavior !
 ## Material
-
-| Map any images to your terrain | Not like this |
+### Map any images to your terrain
+| Like this | Not like this |
 |-|-|
-| ![demo_02](git_images/scene_examples/demo_02.png) | ![demo_03](git_images/scene_examples/demo_03.png) 
+| ![demo_02](git_images/scene_examples/demo_02.png) | ![demo_03](git_images/scene_examples/demo_03.png)
+
 
 
