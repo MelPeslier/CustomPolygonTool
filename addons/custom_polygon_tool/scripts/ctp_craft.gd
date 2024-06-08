@@ -38,7 +38,7 @@ func create_polygons() -> void:
 	load_or_create_occluder()
 	load_or_create_collision()
 	
-	polygon_texture = polygon_texture
+	polygon_texture = BASE_POLYGON_TEXTURE
 
 
 #region Load or create

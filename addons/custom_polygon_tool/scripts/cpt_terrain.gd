@@ -46,7 +46,7 @@ func create_polygons() -> void:
 	constant_angular_velocity = constant_angular_velocity
 	collision_layer = collision_layer
 	collision_mask = collision_mask
-	polygon_texture = polygon_texture
+	polygon_texture = BASE_POLYGON_TEXTURE
 	occluder_light_mask = occluder_light_mask
 	canvas_item_light_mask = canvas_item_light_mask
 	canvas_item_visibility_layer = canvas_item_visibility_layer
