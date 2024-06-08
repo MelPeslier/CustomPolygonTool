@@ -224,6 +224,7 @@ line_material = SubResource("ShaderMaterial_46llg")
 line_half_width = 5.0
 
 [node name="OnTopOfWorld" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(481, 476)
 texture = ExtResource("3_05r8m")
 
