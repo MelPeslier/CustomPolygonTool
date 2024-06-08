@@ -28,6 +28,7 @@ Create **how many** you want per scenes, create your shape, customize it by addi
 
 #### Use the power of SDF
 > Using the generated signed distance field from every [LightOccluder2D](https://docs.godotengine.org/en/stable/classes/class_lightoccluder2d.html#lightoccluder2d) by Godot.
+
 ![](git_images/mat_examples/use_sdf.png)
 
 #### Map any images to your terrain
