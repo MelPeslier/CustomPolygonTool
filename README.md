@@ -37,9 +37,12 @@ Add your own scripts to the parent, and customize his behavior !
 
 #### Use the power of SDF
 > Using the generated signed distance field from every [LightOccluder2D](https://docs.godotengine.org/en/stable/classes/class_lightoccluder2d.html#lightoccluder2d) by Godot.
+
 Here, there is 4 different polygons, but yes, thanks to distance fields, they fit each others, and the outline stay where it need !
 
-![](git_images/mat_examples/use_sdf.png)
+| SDF | Result |
+|-|-|
+|![](git_images/mat_examples/use_sdf.png)|![](git_images/scene_examples/demo_01.png)|
 
 - Map any images to your terrain
 
