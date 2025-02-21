@@ -38,6 +38,7 @@ func load_or_create_dark_masks() -> void:
 	add_child.call_deferred(dark_masks)
 	set_custom_owner.call_deferred(dark_masks)
 
+
 func load_or_create_elements_buffer() -> void:
 	var elements_buffer : BackBufferCopy = get_node_or_null(ELEMENTS_BUFFER)
 	if elements_buffer : return
@@ -50,4 +51,4 @@ func load_or_create_elements_buffer() -> void:
 
 
 func set_custom_owner(_node : Variant) -> void:
-	_node.owner = get_parent()
+	_node.owner = get_tree().edited_scene_root

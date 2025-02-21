@@ -3,7 +3,7 @@ shader_type canvas_item;
 // Where there is an element to map, you must put a black texture behind it, else the world would be of the background color !
 
 // In RGB, 1 equal approx to 0.0004 (0.00039...) so we use 0.0003 to see if it's 0 or more
-const float EDGE = 0.01;
+const float EDGE = 0.1;
 
 // New color for black ( will look black but wont be considered as of 'color to discard'
 // In the tile textures, we are going to ignore colors that are pure black (0,0,0)
@@ -24,6 +24,6 @@ void fragment() {
 	// coef = 0.5 : return midle between a and b
 	// coef = 1.0 : return b
 	vec3 remaped_tex = mix(f, black_to_me, is_black);
-	COLOR.rgb = remaped_tex;
+	//COLOR.rgb = remaped_tex;
+	COLOR *= 2.3;
 }
-

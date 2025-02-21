@@ -319,6 +319,7 @@ func _update_polygon() -> void:
 	if not polygon: return
 	polygon.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	inner_material = inner_material
+	polygon.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
 #endregion
 
 
@@ -441,16 +442,16 @@ func _set_poly_number_of_points(_poly_number_of_points: int) -> void:
 ##Showme
 func _set_inner_material(_inner_material: ShaderMaterial) -> void:
 	inner_material = _inner_material
-	if not inner_material:
-		inner_material = ShaderMaterial.new()
-		inner_material.shader = INNER_BASE_MATERIAL
-		inner_material.set_shader_parameter("c_main_sampler", MATERIAL_BASE_TEXTURE)
-		inner_material.set_shader_parameter("c_tex_size", MATERIAL_BASE_TEXTURE.get_size())
-		
-		inner_material.set_shader_parameter("p_main_sampler", MATERIAL_PROTOTYPE_TEXTURE)
-		inner_material.set_shader_parameter("p_tex_size", MATERIAL_PROTOTYPE_TEXTURE.get_size())
-		
-		inner_material.set_shader_parameter("f_color_sampler", GRADIENT_FRACTAL.duplicate(true))
+	#if not inner_material:
+		#inner_material = ShaderMaterial.new()
+		#inner_material.shader = INNER_BASE_MATERIAL
+		#inner_material.set_shader_parameter("c_main_sampler", MATERIAL_BASE_TEXTURE)
+		#inner_material.set_shader_parameter("c_tex_size", MATERIAL_BASE_TEXTURE.get_size())
+		#
+		#inner_material.set_shader_parameter("p_main_sampler", MATERIAL_PROTOTYPE_TEXTURE)
+		#inner_material.set_shader_parameter("p_tex_size", MATERIAL_PROTOTYPE_TEXTURE.get_size())
+		#
+		#inner_material.set_shader_parameter("f_color_sampler", GRADIENT_FRACTAL.duplicate(true))
 	if not is_inside_tree():
 		return
 	if polygon:

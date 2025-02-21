@@ -6,4 +6,3 @@ void fragment() {
 	COLOR.rgb = vec3(pct);
 	COLOR.a = step(uv.y, 0.0) * (1.0-abs(uv.y));
 }
-

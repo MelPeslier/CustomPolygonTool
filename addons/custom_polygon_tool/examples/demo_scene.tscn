@@ -1,72 +1,64 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsdh6a56pmist"]
+[gd_scene load_steps=19 format=3 uid="uid://dsdh6a56pmist"]
 
 [ext_resource type="Texture2D" uid="uid://bsgw2fhpsoxey" path="res://addons/custom_polygon_tool/examples/runeGrey_slabOutline_001.png" id="1_1oh0j"]
-[ext_resource type="Script" path="res://addons/custom_polygon_tool/scripts/cpt_curve2d.gd" id="1_8y3tc"]
-[ext_resource type="Script" path="res://addons/custom_polygon_tool/scripts/cpt_terrain.gd" id="2_8e3h4"]
+[ext_resource type="Script" uid="uid://xs82mfdm72i0" path="res://addons/custom_polygon_tool/scripts/cpt_curve2d.gd" id="1_8y3tc"]
+[ext_resource type="Script" uid="uid://cqteq4478n0sc" path="res://addons/custom_polygon_tool/scripts/cpt_terrain.gd" id="2_8e3h4"]
+[ext_resource type="Material" uid="uid://eqnwldxxpaiw" path="res://addons/custom_polygon_tool/materials/black_to_blackblue.tres" id="2_ehajj"]
 [ext_resource type="Texture2D" uid="uid://n0npi5lit3ku" path="res://addons/custom_polygon_tool/examples/runeGrey_slabOutline_002.png" id="2_gppsp"]
 [ext_resource type="Texture2D" uid="uid://mx13uwgoi087" path="res://addons/custom_polygon_tool/examples/runeGrey_slabOutline_003.png" id="3_05r8m"]
-[ext_resource type="Shader" path="res://addons/custom_polygon_tool/materials/cpt_inner.gdshader" id="3_anc61"]
 [ext_resource type="Texture2D" uid="uid://fskijh8nsb3a" path="res://addons/custom_polygon_tool/samplers/cpt_inner_custom.bmp" id="4_xioqy"]
-[ext_resource type="Shader" path="res://addons/custom_polygon_tool/materials/cpt_line.gdshader" id="5_unmsj"]
+[ext_resource type="Shader" uid="uid://cyn3d3hgr1pn0" path="res://addons/custom_polygon_tool/materials/cpt_line.gdshader" id="5_unmsj"]
 [ext_resource type="Texture2D" uid="uid://rq0lwww5rpl1" path="res://addons/custom_polygon_tool/examples/Blue_Nebula_08-1024x1024.png" id="6_53cud"]
-[ext_resource type="Script" path="res://addons/custom_polygon_tool/scripts/cpt_setup_helper.gd" id="11_ktxan"]
+[ext_resource type="Shader" uid="uid://cshu3l5l78wl3" path="res://addons/custom_polygon_tool/materials/cpt_inner.gdshader" id="9_1kdc5"]
+[ext_resource type="Script" uid="uid://b8t5rspw7anle" path="res://addons/custom_polygon_tool/scripts/cpt_setup_helper.gd" id="11_ktxan"]
 
-[sub_resource type="Curve2D" id="Curve2D_csf3g"]
+[sub_resource type="Environment" id="Environment_1kdc5"]
+
+[sub_resource type="Compositor" id="Compositor_1kdc5"]
+
+[sub_resource type="Curve2D" id="Curve2D_msnnl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1.53076e-14, -250, 0, 0, 0, 0, 176.777, -176.777, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 176.777, 176.777, 0, 0, 0, 0, 1.53076e-14, 250, 0, 0, 0, 0, -176.777, 176.777, 0, 0, 0, 0, -250, 3.06152e-14, 0, 0, 0, 0, -176.777, -176.777, 0, 0, 0, 0, -4.59227e-14, -250)
+"points": PackedVector2Array(0, 0, 0, 0, 1.24006e-14, -202.524, 0, 0, 0, 0, 109.493, -170.374, 0, 0, 0, 0, 184.222, -84.1315, 0, 0, 0, 0, 200.463, 28.8222, 0, 0, 0, 0, 153.057, 132.625, 0, 0, 0, 0, 57.0576, 194.32, 0, 0, 0, 0, -57.0576, 194.32, 0, 0, 0, 0, -153.057, 132.625, 0, 0, 0, 0, -200.463, 28.8222, 0, 0, 0, 0, -184.222, -84.1315, 0, 0, 0, 0, -109.493, -170.374, 0, 0, 0, 0, -2.17079e-13, -202.524)
 }
-point_count = 9
+point_count = 12
 script = ExtResource("1_8y3tc")
+metadata/_custom_type_script = ExtResource("1_8y3tc")
 
-[sub_resource type="Gradient" id="Gradient_32jmh"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehajj"]
+shader = ExtResource("9_1kdc5")
+shader_parameter/tex_tiling = 1.0
+shader_parameter/tex_size = Vector2(128, 128)
+shader_parameter/main_sampler = ExtResource("4_xioqy")
+shader_parameter/use_sdf = 1.0
+shader_parameter/sdf_aim = 86.8
+shader_parameter/sdf_color = null
+shader_parameter/use_back_buffer = 1.0
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_68ubd"]
-gradient = SubResource("Gradient_32jmh")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mh1xg"]
-shader = ExtResource("3_anc61")
-shader_parameter/p_c_f_d = 0.33
-shader_parameter/uv_local_global = 1.0
-shader_parameter/p_use_sdf = 0.0
-shader_parameter/p_sdf_aim = 500.0
-shader_parameter/p_tex_tiling = 1.0
-shader_parameter/p_tex_size = Vector2(1024, 1024)
-shader_parameter/p_sdf_color = null
-shader_parameter/p_main_sampler = ExtResource("4_xioqy")
-shader_parameter/c_use_back_buffer = 1.0
-shader_parameter/c_use_sdf = 1.0
-shader_parameter/c_sdf_aim = 500.0
-shader_parameter/c_sdf_color = null
-shader_parameter/c_tex_tiling = 1.0
-shader_parameter/c_tex_size = Vector2(1024, 1024)
-shader_parameter/c_main_splats_color = Color(0, 0, 0, 1)
-shader_parameter/c_main_sampler = ExtResource("4_xioqy")
-shader_parameter/f_sdf_aim = 150.0
-shader_parameter/f_color_sampler = SubResource("GradientTexture2D_68ubd")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lse2a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kg6sk"]
 shader = ExtResource("5_unmsj")
 
-[sub_resource type="Curve2D" id="Curve2D_rsess"]
+[sub_resource type="Curve2D" id="Curve2D_ehajj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1.53076e-14, -250, 0, 0, 0, 0, 176.777, -176.777, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 176.777, 176.777, 0, 0, 0, 0, 1.53076e-14, 250, 0, 0, 0, 0, -176.777, 176.777, 0, 0, 0, 0, -250, 3.06152e-14, 0, 0, 0, 0, -176.777, -176.777, 0, 0, 0, 0, -4.59227e-14, -250)
+"points": PackedVector2Array(0, 0, 0, 0, 1.53076e-14, -250, 0, 0, 0, 0, 216.506, 125, 0, 0, 0, 0, -216.506, 125, 0, 0, 0, 0, -4.59227e-14, -250)
 }
-point_count = 9
+point_count = 4
 script = ExtResource("1_8y3tc")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjvfp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuake"]
 shader = ExtResource("5_unmsj")
 
 [node name="DemoScene" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1kdc5")
+compositor = SubResource("Compositor_1kdc5")
 
 [node name="CPT_Setup_Helper" type="Node2D" parent="."]
 script = ExtResource("11_ktxan")
 
 [node name="ElementsToMix" type="Node2D" parent="CPT_Setup_Helper"]
 z_index = -4095
+material = ExtResource("2_ehajj")
 
 [node name="He have a material" type="Node" parent="CPT_Setup_Helper/ElementsToMix"]
 
@@ -78,40 +70,46 @@ z_index = -4095
 
 [node name="Let\'s make every child use it" type="Node" parent="CPT_Setup_Helper/ElementsToMix"]
 
-[node name="RuneGreySlabOutline001" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
-position = Vector2(87, 307)
+[node name="CanvasGroup" type="CanvasGroup" parent="CPT_Setup_Helper/ElementsToMix"]
+
+[node name="RuneGreySlabOutline001" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(541, 281)
 rotation = -0.250184
 texture = ExtResource("1_1oh0j")
 
-[node name="RuneGreySlabOutline002" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
+[node name="RuneGreySlabOutline002" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
 position = Vector2(839, 283)
 rotation = -0.100839
 texture = ExtResource("2_gppsp")
 
-[node name="RuneGreySlabOutline003" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
-position = Vector2(352, 468)
+[node name="RuneGreySlabOutline003" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(490, 280)
 rotation = -0.00322429
 texture = ExtResource("3_05r8m")
 
-[node name="RuneGreySlabOutline004" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
-position = Vector2(754, 564)
+[node name="RuneGreySlabOutline004" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(705, 485)
 rotation = 0.28517
 texture = ExtResource("1_1oh0j")
 
-[node name="RuneGreySlabOutline005" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
-position = Vector2(896, 481)
+[node name="RuneGreySlabOutline005" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(481, 142)
 rotation = -0.355581
 texture = ExtResource("2_gppsp")
 
-[node name="RuneGreySlabOutline006" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix"]
-use_parent_material = true
-position = Vector2(141, 101)
+[node name="RuneGreySlabOutline006" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(144, 167)
 rotation = -1.2047
+texture = ExtResource("3_05r8m")
+
+[node name="RuneGreySlabOutline007" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(395, 376)
+rotation = 2.51554
+texture = ExtResource("3_05r8m")
+
+[node name="RuneGreySlabOutline008" type="Sprite2D" parent="CPT_Setup_Helper/ElementsToMix/CanvasGroup"]
+position = Vector2(361, 371)
+rotation = 2.51554
 texture = ExtResource("3_05r8m")
 
 [node name="DarkMasks" type="Node2D" parent="CPT_Setup_Helper"]
@@ -140,36 +138,39 @@ texture = ExtResource("6_53cud")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="CPT_Terrain2" type="Path2D" parent="."]
-position = Vector2(674, 257)
-curve = SubResource("Curve2D_csf3g")
-script = ExtResource("2_8e3h4")
-polygon_texture = ExtResource("4_xioqy")
-inner_material = SubResource("ShaderMaterial_mh1xg")
-shape = 1
-poly_radius = 250.0
-poly_number_of_points = 8
-free_custom_bake_interval = 75.0
-free_angle_threshold = 0.05
-debug_show_collision_polygone = false
-debug_points_radius = 7.0
-debug_points_color = Array[Color]([Color(1, 0.388235, 0.278431, 1), Color(1, 0.647059, 0, 1)])
-line_material = SubResource("ShaderMaterial_lse2a")
-line_half_width = 5.0
-
 [node name="CPT_Terrain" type="Path2D" parent="."]
-position = Vector2(328, 324)
-curve = SubResource("Curve2D_rsess")
+position = Vector2(517, -109)
+curve = SubResource("Curve2D_msnnl")
 script = ExtResource("2_8e3h4")
 polygon_texture = ExtResource("4_xioqy")
-inner_material = SubResource("ShaderMaterial_mh1xg")
+inner_material = SubResource("ShaderMaterial_ehajj")
 shape = 1
-poly_radius = 250.0
-poly_number_of_points = 8
+debug_show = true
+poly_radius = 202.524
+poly_number_of_points = 11
 free_custom_bake_interval = 75.0
 free_angle_threshold = 0.05
 debug_show_collision_polygone = false
 debug_points_radius = 7.0
 debug_points_color = Array[Color]([Color(1, 0.388235, 0.278431, 1), Color(1, 0.647059, 0, 1)])
-line_material = SubResource("ShaderMaterial_qjvfp")
-line_half_width = 98.611
+line_material = SubResource("ShaderMaterial_kg6sk")
+line_half_width = 2.5
+metadata/_custom_type_script = ExtResource("2_8e3h4")
+
+[node name="CPT_Terrain2" type="Path2D" parent="."]
+position = Vector2(516, 233)
+curve = SubResource("Curve2D_ehajj")
+script = ExtResource("2_8e3h4")
+polygon_texture = ExtResource("4_xioqy")
+inner_material = SubResource("ShaderMaterial_ehajj")
+shape = 1
+poly_radius = 250.0
+poly_number_of_points = 3
+free_custom_bake_interval = 75.0
+free_angle_threshold = 0.05
+debug_show_collision_polygone = false
+debug_points_radius = 7.0
+debug_points_color = Array[Color]([Color(1, 0.388235, 0.278431, 1), Color(1, 0.647059, 0, 1)])
+line_material = SubResource("ShaderMaterial_fuake")
+line_half_width = 5.0
+metadata/_custom_type_script = ExtResource("2_8e3h4")
